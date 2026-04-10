@@ -1,0 +1,30 @@
+          <article class="card feature-card">
+            <div class="icon-dot">01</div>
+            <h3>All Sizes Business</h3>
+            <p>From pilot lots to container loads with identical formulations.</p>
+          </article>
+          <article class="card feature-card">
+            <div class="icon-dot">02</div>
+            <h3>Significant ROI</h3>
+            <p>Optimized recipes balancing strength, flow, and cost.</p>
+          </article>
+          <article class="card feature-card">
+            <div class="icon-dot">03</div>
+            <h3>Keep You in Loop</h3>
+            <p>Transparent QA updates and batch documentation.</p>
+          </article>
+          <article class="card feature-card">
+            <div class="icon-dot">04</div>
+            <h3>Awesome Results</h3>
+            <p>Repeatable performance across every shipment.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/script.js"></script>
+</body>
+</html>
