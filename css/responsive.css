@@ -151,9 +151,14 @@
   .reasons-grid { grid-template-columns: 1fr; }
   .products-carousel { padding-bottom: 20px; }
   .top-strip .top-strip-wrap { flex-direction: column; gap: 6px; }
-  /* Contact cards on tablets: keep readable columns */
+  .contact-wrapper { grid-template-columns: 1fr; }
+  .contact-left, .contact-right { padding: 18px; }
+}
+
+/* Contact cards on tablets: keep readable columns without affecting mobiles */
+@media (min-width: 641px) and (max-width: 1024px) {
   .contact-card {
-    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
     gap: 12px;
   }
 }
