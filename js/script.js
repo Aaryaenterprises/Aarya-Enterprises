@@ -59,7 +59,7 @@
             </div>
           </div>
           <div>
-            <h4>Useful Links</h4>
+            <h4>Quick Links</h4>
             <span class="footer-underline"></span>
             <ul>
               <li><a href="index.html">Home</a></li>
@@ -77,7 +77,11 @@
                   <path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-              </span> GAT NO. 1567, NEAR TORANA HOTEL, DEHU ALANDI ROAD, SHELAR WASTI, CHIKHALI, PUNE, Maharashtra, 411062</li>
+              </span> <a href="https://maps.google.com/?q=GAT%20NO.%201567,%20NEAR%20TORANA%20HOTEL,%20DEHU%20ALANDI%20ROAD,%20SHELAR%20WASTI,%20CHIKHALI,%20PUNE,%20Maharashtra,%20411062" target="_blank" rel="noopener">
+                Gat No. 1567, Near Torana Hotel,<br>
+                Dehu Alandi Road, Shelar Wasti,<br>
+                Chikhali, Pune, Maharashtra 411062
+              </a></li>
               <li><span class="footer-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16v16H4z" />
