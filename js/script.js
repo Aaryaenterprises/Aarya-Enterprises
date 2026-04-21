@@ -18,7 +18,7 @@
             <img src="assets/logo/logo3.png" alt="Aarya Enterprises" class="brand-mark">
             <span class="brand-text">
               <span class="brand-title">Aarya Enterprises</span>
-              <span class="brand-tagline">Polymer Manufacturer</span>
+              <span class="brand-tagline">Polymer Granule Manufacturer</span>
             </span>
           </a>
           <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -46,11 +46,15 @@
     return `
       <footer class="site-footer">
         <div class="container footer-grid">
-          <div>
+          <div class="footer-brand-column">
             <div class="footer-logo-main-wrap">
               <img src="assets/logo/footerlogo.png" alt="Aarya Enterprises" class="footer-logo-main">
+              <span class="brand-text footer-brand-text">
+                <span class="brand-title footer-brand-title">Aarya Enterprises</span>
+                <span class="brand-tagline footer-brand-tagline">Polymer Granule Manufacturer</span>
+              </span>
             </div>
-            <p class="footer-text">Serving automotive, industrial, and export clients across India.</p>
+            <p class="footer-text">We are engaged as the foremost manufacturer of HDPE PP, PPTF LDPE, LLDPE, PPCP, ABS, NYLON, PC-ABS, PC Granules.</p>
             <div class="footer-socials-inline">
               <a href="https://www.facebook.com" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
               <a href="https://twitter.com" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
@@ -58,7 +62,7 @@
               <a href="https://www.instagram.com" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
             </div>
           </div>
-          <div>
+          <div class="footer-links-column">
             <h4>Quick Links</h4>
             <span class="footer-underline"></span>
             <ul>
@@ -68,7 +72,7 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
-          <div>
+          <div class="footer-contact-column">
             <h4>Contact</h4>
             <span class="footer-underline"></span>
             <ul class="footer-contact">
