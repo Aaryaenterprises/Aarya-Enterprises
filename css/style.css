@@ -312,8 +312,107 @@ body[data-page="home"] .hero.hero-static {
   margin-right: calc(50% - 50vw);
 }
 
+/* Home hero slider */
+.hero-slider {
+  padding: 0 !important;
+  min-height: 0;
+  background: transparent;
+  display: block;
+  line-height: 0;
+  align-items: stretch;
+  margin: 0 !important;
+}
+.hero-slider .slider-track {
+  display: flex;
+  transition: transform .6s ease;
+  width: 100%;
+  will-change: transform;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.hero-slider .slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  padding: 0 !important;
+  background: none;
+  line-height: 0;
+  overflow: hidden;
+  margin: 0 !important;
+}
+.hero-slider .slide img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: clamp(260px, 46vw, 520px);
+  object-fit: cover;
+  object-position: center top;
+  vertical-align: top;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.hero-slider .slider-prev,
+.hero-slider .slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(11, 31, 58, 0.72);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(1px);
+}
+.hero-slider .slider-prev { left: 18px; }
+.hero-slider .slider-next { right: 18px; }
+.hero-slider .slider-prev:hover,
+.hero-slider .slider-next:hover {
+  background: rgba(0, 169, 157, 0.9);
+  border-color: rgba(255,255,255,0.85);
+}
+.hero-slider .slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+body[data-page="home"] .hero.hero-slider {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+body[data-page="home"] main {
+  margin-top: 0;
+  padding-top: 0;
+}
+body[data-page="home"] main > .hero.hero-slider {
+  margin-top: 0 !important;
+}
+.hero-slider .hero-slide {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.hero-slider .hero-slide img {
+  margin: 0;
+}
+
 /* Reduce gap after hero on home */
 body[data-page="home"] .hero-static + .section {
+  padding-top: var(--section-pad);
+}
+body[data-page="home"] .hero-slider + .section {
   padding-top: var(--section-pad);
 }
 body[data-page="about"] .page-hero-section + .section {

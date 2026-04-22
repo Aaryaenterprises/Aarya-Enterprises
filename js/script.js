@@ -170,6 +170,7 @@
 
       let index = 0;
       let timer;
+      const shouldPauseOnHover = !slider.classList.contains("hero-slider");
 
       slides.forEach((_, i) => {
         const dot = document.createElement("button");
@@ -179,7 +180,8 @@
 
       function goTo(i) {
         index = (i + slides.length) % slides.length;
-        track.style.transform = `translateX(-${index * 100}%)`;
+        const offset = index * slider.clientWidth;
+        track.style.transform = `translate3d(-${offset}px, 0, 0)`;
         dotsContainer.querySelectorAll("button").forEach((d, di) => d.classList.toggle("active", di === index));
       }
 
@@ -188,7 +190,7 @@
 
       function startAuto() {
         stopAuto();
-        timer = setInterval(nextSlide, 5500);
+        timer = setInterval(nextSlide, 3500);
       }
       function stopAuto() {
         if (timer) clearInterval(timer);
@@ -196,8 +198,11 @@
 
       next.addEventListener("click", () => { nextSlide(); startAuto(); });
       prev.addEventListener("click", () => { prevSlide(); startAuto(); });
-      slider.addEventListener("mouseenter", stopAuto);
-      slider.addEventListener("mouseleave", startAuto);
+      if (shouldPauseOnHover) {
+        slider.addEventListener("mouseenter", stopAuto);
+        slider.addEventListener("mouseleave", startAuto);
+      }
+      window.addEventListener("resize", () => goTo(index));
 
       goTo(0);
       startAuto();
@@ -287,11 +292,14 @@
 
   // ----- Contact form validation -----
   function setupForms() {
-    const form = document.getElementById("contact-form");
+    const form = document.getElementById("cf-form");
     if (!form) return;
-    const status = form.querySelector(".form-status");
-    form.addEventListener("submit", (e) => {
+    const status = form.querySelector(".cf-status");
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
       const valid = form.checkValidity();
       if (!valid) {
         form.reportValidity();
@@ -302,29 +310,46 @@
         return;
       }
 
-      const name = form.querySelector("#name")?.value?.trim() || "";
-      const phone = form.querySelector("#phone")?.value?.trim() || "";
-      const email = form.querySelector("#email")?.value?.trim() || "";
-      const message = form.querySelector("#message")?.value?.trim() || "";
-      const to = "aaryaentpune@gmail.com";
-      const subject = encodeURIComponent(`Price request from ${name || "customer"}`);
-      const bodyLines = [
-        `Name: ${name}`,
-        `Phone: ${phone}`,
-        `Email: ${email}`,
-        "",
-        "Requirement:",
-        message
-      ];
-      const body = encodeURIComponent(bodyLines.join("\n"));
-      const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
-      window.location.href = mailto;
-
       if (status) {
-        status.textContent = "Opening your email client...";
-        status.style.color = "#1f6f5b";
+        status.textContent = "Sending your request...";
+        status.style.color = "#0B1F3A";
       }
-      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+      }
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const result = await response.json();
+        if (response.ok && result.success) {
+          if (status) {
+            status.textContent = "Thank you. Your quote request has been sent successfully.";
+            status.style.color = "#1f6f5b";
+          }
+          form.reset();
+        } else {
+          if (status) {
+            status.textContent = result.message || "Failed to send. Please try again.";
+            status.style.color = "#c0392b";
+          }
+        }
+      } catch (error) {
+        if (status) {
+          status.textContent = "Network error. Please try again in a moment.";
+          status.style.color = "#c0392b";
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Request a Quote";
+        }
+      }
     });
   }
 

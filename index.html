@@ -27,12 +27,21 @@
   <div id="site-header"></div>
 
   <main>
-    <section class="hero hero-static">
-      <picture>
-        <img src="assets/herobanners/hero-aarya.png"
-             alt="High-Performance Polymer Granules for Industrial Excellence"
-             class="hero-full-image">
-      </picture>
+    <section class="hero hero-slider slider" aria-label="Aarya Enterprises banner slider">
+      <div class="slider-track">
+        <div class="slide hero-slide">
+          <img src="assets/herobanners/Banner1.svg" alt="Aarya Enterprises industrial polymer banner 1">
+        </div>
+        <div class="slide hero-slide">
+          <img src="assets/herobanners/Banner2.svg" alt="Aarya Enterprises industrial polymer banner 2">
+        </div>
+        <div class="slide hero-slide">
+          <img src="assets/herobanners/Banner3.svg" alt="Aarya Enterprises industrial polymer banner 3">
+        </div>
+      </div>
+      <button class="slider-prev" aria-label="Previous slide">&#10094;</button>
+      <button class="slider-next" aria-label="Next slide">&#10095;</button>
+      <div class="slider-dots" aria-label="Slider pagination"></div>
     </section>
 
     <section class="section reveal about-section">
